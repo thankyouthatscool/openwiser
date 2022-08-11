@@ -1,0 +1,52 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Clipping {
+  id       String       @id @default(uuid())
+  content  String
+  date     DateTime
+  location Int
+  page     Int
+  source   Source       @relation(fields: [sourceId], references: [id])
+  sourceId String
+  type     ClippingType
+}
+
+model NotionPage {
+  id       String @id @default(uuid())
+  notionId String @unique
+  source   Source @relation(fields: [sourceId], references: [id])
+  sourceId String @unique
+}
+
+model Source {
+  id         String      @id @default(uuid())
+  author     String
+  clippings  Clipping[]
+  coverUrl   String
+  notionPage NotionPage?
+  title      String
+  type       SourceType
+  url        String
+
+  @@unique([author, title, type])
+}
+
+enum ClippingType {
+  HIGHLIGHT
+  NOTE
+}
+
+enum SourceType {
+  ARTICLE
+  BOOK
+}
