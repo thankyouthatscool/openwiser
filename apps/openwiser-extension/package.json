@@ -1,5 +1,5 @@
 {
-  "name": "openwiser-extension",
+  "name": "@openwiser/openwiser-extension",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -9,12 +9,21 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
+    "@mui/material": "^5.10.0",
+    "@mui/styled-engine-sc": "^5.10.0",
+    "@openwiser/openwiser-server": "^1.0.0",
+    "axios": "^0.27.2",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "styled-components": "^5.3.5",
+    "styled-normalize": "^8.0.7"
   },
   "devDependencies": {
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
+    "@types/styled-components": "^5.1.26",
     "@typescript-eslint/eslint-plugin": "^5.33.0",
     "@typescript-eslint/parser": "^5.33.0",
     "@vitejs/plugin-react": "^2.0.0",
