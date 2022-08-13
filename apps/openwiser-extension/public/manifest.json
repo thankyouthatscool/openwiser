@@ -1,0 +1,20 @@
+{
+  "name": "Open WiseR",
+  "description": "Some description idk hahah",
+  "version": "0.1",
+  "manifest_version": 3,
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "host_permissions": ["<all_urls>"],
+  "permissions": ["tabs", "notifications"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "action": {
+    "default_popup": "index.html#popup"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}

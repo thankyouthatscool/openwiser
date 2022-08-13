@@ -2,10 +2,12 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface UIState {
   isDrawerOpen: boolean;
+  timeFormatString: string;
 }
 
 const initialState: UIState = {
-  isDrawerOpen: true,
+  isDrawerOpen: false,
+  timeFormatString: "H:mm",
 };
 
 export const uiSlice = createSlice({
@@ -15,9 +17,12 @@ export const uiSlice = createSlice({
     setIsDrawerOpen: (store, { payload }: PayloadAction<boolean>) => {
       store.isDrawerOpen = payload;
     },
+    setTimeFormatString: (store, { payload }: PayloadAction<string>) => {
+      store.timeFormatString = payload;
+    },
   },
 });
 
-export const { setIsDrawerOpen } = uiSlice.actions;
+export const { setIsDrawerOpen, setTimeFormatString } = uiSlice.actions;
 
 export default uiSlice.reducer;
