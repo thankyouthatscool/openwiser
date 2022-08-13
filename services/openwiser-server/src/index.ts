@@ -27,6 +27,8 @@ uploadRouter.post("/kindle", (req, res) => {
   form.on("file", (_, file) => {
     const formattedClippings = kindleClippingsParer(file.filepath);
 
+    console.log(formattedClippings);
+
     unlinkSync(file.filepath);
   });
 
